@@ -1,14 +1,17 @@
 <template>
+  <Head>
+    <Title>Compas</Title>
+  </Head>
   <div :class="$style.root">
     <CheckFine />
-    <div>
+    <section>
       <h2 :class="$style.title">Плюсы использования сервиса «Компас» для анализа штрафов</h2>
       <CardsGrid />
-    </div>
-    <div>
+    </section>
+    <section>
       <h2 :class="$style.title">Документы</h2>
       <Slider />
-    </div>
+    </section>
   </div>
 
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.root">
+  <section :class="$style.root">
     <form id="fine-form" :class="$style.form" @submit.prevent>
       <h1 :class="$style.title">Проверьте штрафы и зарегестрируйтесь в 1 клик</h1>
       <Alert
@@ -37,7 +37,7 @@
     <div :class="$style.imgWrapper">
       <img alt="laptop" :class="$style.img" src="../../assets/img/check-fine/laptop.png"/>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

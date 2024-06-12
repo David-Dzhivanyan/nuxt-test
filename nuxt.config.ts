@@ -11,6 +11,9 @@ export default defineNuxtConfig({
       }
     }
   },
+  meta: {
+    title: 'Compas',
+  },
   hooks: {
     "pages:extend"(pages) {
       pages.push({

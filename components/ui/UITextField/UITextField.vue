@@ -51,8 +51,15 @@ const inputEvent = (e) => {
     padding: 10px;
     height: 40px;
 
-    &:global(.empty) {
-      border-color: $danger;
+    &:focus {
+      border: 1px solid $primary;
+    }
+
+    &:global {
+      &.empty,
+      &.empty:focus {
+        border-color: $danger;
+      }
     }
   }
 }

@@ -8,13 +8,13 @@
           <NuxtLink  to="/supportPage/Тарифы"> Тарифы </NuxtLink >
           <NuxtLink  to="/supportPage/Контакты"> Контакты </NuxtLink >
         </nav>
-        <div :class="$style.list">
+        <nav :class="$style.list">
           <a href='tel:74951184422'> +7 495 118-44-22</a>
           <NuxtLink  to="/supportPage/Вход"> Вход </NuxtLink >
           <NuxtLink  to="/supportPage/Регистрация" class="btn">
               Регистрация
           </NuxtLink >
-        </div>
+        </nav>
       </div>
   </header>
 </template>

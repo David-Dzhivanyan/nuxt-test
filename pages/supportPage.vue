@@ -1,12 +1,12 @@
 <template>
+  <Head>
+    <Title>{{route.params.title}}</Title>
+  </Head>
 {{route.params.title}}
 </template>
 
 <script setup>
 const route = useRoute()
-
-// When accessing /posts/1, route.params.id will be 1
-console.log(route.params.title)
 </script>
 <style>
 
