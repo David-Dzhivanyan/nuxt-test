@@ -1,0 +1,58 @@
+@use 'public/fonts/ptsans/ptsans.css';
+@import 'mixins';
+
+body, * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'PT Sans', Tahoma, sans-serif;
+  font-size: 18px;
+
+  @media (max-width: map-get($media-breakpoint, lg)) {
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  padding: 12px 20px;
+  margin: 0 auto;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn {
+  @include reset-button();
+  background-color: $primary;
+  color: white;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 15px;
+  padding: 9px 18px;
+
+  &:hover {
+    background-color: $primary-light;
+  }
+
+  &.btn-lg {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  &.btn-outline {
+    background: none;
+    border: 1px solid $primary;
+    color: black;
+    &:hover {
+      background: $primary-lighten;
+    }
+  }
+}
+
