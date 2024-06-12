@@ -9,19 +9,19 @@
 
 <script setup>
 const props = defineProps({
-  show: Boolean,
+  modelValue: Boolean,
 })
-const emit = defineEmits(['close']);
+const emit = defineEmits(['update:modelValue']);
 
-const shown = computed(() => props.show ? 'show' : '');
+const shown = computed(() => props.modelValue ? 'show' : '');
 
 document && document.addEventListener('keydown', (e) => {
   if (e.code == 'Escape') {
-    emit('close');
+    emit('update:modelValue');
   }
 });
 const exitModal = () =>  {
-  emit('close');
+  emit('update:modelValue');
 }
 
 </script>

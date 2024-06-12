@@ -9,7 +9,7 @@
         :breakpoints="breakpoints"
         :class="$style.slider"
     >
-      <SwiperSlide v-for="({title, description, href}, i) in data" >
+      <SwiperSlide v-for="({title, description, href}) in data" >
         <div :class="$style.slide">
           <div>
             <div :class="$style.title">
@@ -23,7 +23,6 @@
             Перейдите
           </NuxtLink>
         </div>
-
       </SwiperSlide>
     </Swiper>
   </div>

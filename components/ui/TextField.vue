@@ -2,7 +2,7 @@
   <div :class="$style.root">
     <label :class="$style.label">{{label}}</label>
     <input
-        :class="[$style.input, {required: required}]"
+        :class="[$style.input, {required: required}, classes]"
         :name="name"
         v-model="inputData"
         @input="inputEvent"
@@ -16,10 +16,11 @@ const props = defineProps({
   name: { type: String, required: true },
   label: {type: String, default: ''},
   required: Boolean,
-  modelValue: { type: String, default: '' }
+  modelValue: { type: String, default: '' },
+  isValid: Boolean,
 })
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'update:isValid'])
 
 const inputData = computed({
   get: () => props.modelValue,
@@ -27,11 +28,13 @@ const inputData = computed({
 })
 const inputEvent = (e) => {
   if(e.target.value.length === 0) {
-    e.target.classList.add('empty');
+    emit('update:isValid', false);
   } else {
-    e.target.classList.remove('empty');
+    emit('update:isValid', true);
   }
 }
+
+const classes = computed(() => props.isValid ? '' : 'empty');
 </script>
 
 <style module lang="scss">

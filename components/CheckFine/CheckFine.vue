@@ -1,18 +1,37 @@
 <template>
   <section :class="$style.root">
-    <form id="fine-form" :class="$style.form" @submit.prevent>
+    <form id="fine-form" ref="formRef" :class="$style.form" @submit.prevent>
       <h1 :class="$style.title">Проверьте штрафы и зарегестрируйтесь в 1 клик</h1>
       <Alert
           title="Успешно!"
-          :text="alertText"
-          :show="alertShow"
-          @close="() => {alertShow = false;}"
+          text="Письмо успешно отправлено."
+          v-model="alertShow"
       />
       <div :class="$style.row">
-        <UITextField :class="$style.input" name="number" v-model="data.number" label="Номер автомобиля" required/>
-        <UITextField :class="$style.input" name="region" v-model="data.region" label="Регион" required/>
+        <UiTextField
+          :class="$style.input"
+          name="number"
+          v-model="dataForm.number.text"
+          v-model:isValid="dataForm.number.isValid"
+          label="Номер автомобиля"
+          required
+        />
+        <UiTextField
+          :class="$style.input"
+          name="region"
+          v-model="dataForm.region.text"
+          v-model:isValid="dataForm.region.isValid"
+          label="Регион"
+          required
+        />
       </div>
-      <UITextField name="certificate" v-model="data.certificate" label="Свидетельство о регистрации ТС" required/>
+      <UiTextField
+        name="certificate"
+        v-model="dataForm.certificate.text"
+        v-model:isValid="dataForm.certificate.isValid"
+        label="Свидетельство о регистрации ТС"
+        :required="dataForm.certificate.required"
+      />
       <div :class="$style.btns">
         <button
             class="btn btn-lg"
@@ -29,52 +48,59 @@
           <IconYouTube/>
           О сервисе <span :class="$style.span">(1 мин. 20 сек)</span>
         </a>
-        <ModalVideo :show="modalShow" v-on:close="() => {modalShow = false;}"/>
+        <ModalVideo v-model="modalShow"/>
       </div>
       <p :class="$style.description">Нажимая «Проверить штрафы» вы соглашаетесь с политикой обработки персональных данных и принимаете оферту</p>
     </form>
 
     <div :class="$style.imgWrapper">
-      <img alt="laptop" :class="$style.img" src="../../assets/img/check-fine/laptop.png"/>
+      <img alt="laptop" :class="$style.img" src="~/assets/img/check-fine/laptop.png"/>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import Alert from "~/components/Alert/Alert.vue";
-import UITextField from "~/components/ui/UITextField/UITextField.vue";
-import IconArrowLeft from "~/components/Icons/IconArrowLeft.vue";
-import IconYouTube from "~/components/Icons/IconYouTube.vue";
-let data = ref(
-    {
-      number: '',
-      region: '',
-      certificate: '',
-    }
-)
-
-const alertText = computed(() => `Письмо ${JSON.stringify(data.value)} успешно отправлено.`);
 let alertShow = ref(false);
 let modalShow = ref(false);
+let formRef = ref(null);
+
+let dataForm = ref(
+  {
+    number: {
+      text: '',
+      isValid: true,
+      required: true,
+    },
+    region: {
+      text: '',
+      isValid: true,
+      required: true,
+    },
+    certificate: {
+      text: '',
+      isValid: true,
+      required: true,
+    },
+  }
+)
 
 const submit = () => {
-  const form = document.getElementById('fine-form');
+  if(!formRef) return;
 
-  if(!form) return;
-  const inputs = form.querySelectorAll('input');
-
-  let isValid = true;
-  inputs.forEach((input) => {
-    input.classList.remove()
-    if (input.classList.contains('required') && !input.value) {
-      input.classList.add('empty');
-      isValid = false;
+  let formValid = true;
+  for (const input in dataForm.value) {
+    dataForm.value[input].isValid = true;
+    if (dataForm.value[input].required && !dataForm.value[input].text) {
+      dataForm.value[input].isValid = false;
+      formValid = false;
     }
-  })
+  }
 
-  if(!isValid) return;
+  if(!formValid) return;
 
-  form.reset();
+  for (const input in dataForm.value)
+    dataForm.value[input].text = '';
+
   alertShow.value = true;
 }
 </script>

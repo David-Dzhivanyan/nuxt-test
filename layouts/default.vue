@@ -1,9 +1,9 @@
 <template>
   <div :class="$style.root">
     <Header/>
-    <div class="container">
+    <main class="container">
       <slot />
-    </div>
+    </main>
   </div>
 </template>
 

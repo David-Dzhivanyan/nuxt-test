@@ -10,14 +10,14 @@
     title: { type: String, default: ''},
     text: { type: String, default: '' },
     type: { type: String, default: 'success'},
-    show: Boolean,
+    modelValue: Boolean,
   })
-  const emit = defineEmits(['close']);
+  const emit = defineEmits(['update:modelValue']);
 
   const shown = computed(() => {
-    if (props.show) {
+    if (props.modelValue) {
       setTimeout(() => {
-        emit('close');
+        emit('update:modelValue', false);
       }, 2000)
       return 'show';
     }
@@ -34,6 +34,7 @@
   transition: transform 0.3s ease-in-out;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  color: white;
   max-width: 800px;
   padding: 20px;
 

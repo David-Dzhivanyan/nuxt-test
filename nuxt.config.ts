@@ -6,13 +6,10 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: '@use "~/assets/styles/_colors.scss" as *;'
+          additionalData: '@use "~/assets/styles/_vars.scss" as *;'
         }
       }
     }
-  },
-  meta: {
-    title: 'Compas',
   },
   hooks: {
     "pages:extend"(pages) {

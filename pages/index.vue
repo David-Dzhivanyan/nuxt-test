@@ -1,26 +1,22 @@
 <template>
-  <Head>
-    <Title>Compas</Title>
-  </Head>
   <div :class="$style.root">
     <CheckFine />
     <section>
       <h2 :class="$style.title">Плюсы использования сервиса «Компас» для анализа штрафов</h2>
-      <CardsGrid />
+      <CardGrid />
     </section>
     <section>
       <h2 :class="$style.title">Документы</h2>
-      <Slider />
+      <Document />
     </section>
   </div>
 
 </template>
 
 <script setup>
-import Slider from "@/components/Slider/Slider.vue";
-import CheckFine from "~/components/CheckFine/CheckFine.vue";
-import CardsGrid from "~/components/CardsGrid/CardsGrid.vue";
-
+const meta = useHead({
+  title: 'Compas'
+});
 </script>
 
 <style module lang="scss">
