@@ -11,4 +11,13 @@ export default defineNuxtConfig({
       }
     }
   },
+  hooks: {
+    "pages:extend"(pages) {
+      pages.push({
+        name: "supportPage",
+        path: "/supportPage/:title",
+        file: "~/pages/supportPage.vue"
+      });
+    },
+  },
 })

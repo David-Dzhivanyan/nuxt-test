@@ -46,6 +46,14 @@ const data = [
 
   & > div {
     flex: 30% 1 1;
+
+    @media (max-width: map-get($media-breakpoint, lg)) {
+      flex: 45% 1 1;
+    }
+
+    @media (max-width: map-get($media-breakpoint, md)) {
+      flex: 100% 1 1;
+    }
   }
 }
 </style>

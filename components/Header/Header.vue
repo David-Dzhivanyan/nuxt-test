@@ -2,24 +2,23 @@
   <header :class="$style.root">
       <div :class="$style.inner" class="container">
         <nav :class="$style.list">
-          <RouterLink to="/">
+          <NuxtLink  to="/">
             <img alt="logo" :class="$style.img" src="../../assets/img/header/logo.svg">
-          </RouterLink>
-          <RouterLink to="/tariffs"> Тарифы </RouterLink>
-          <RouterLink to="/contacts"> Контакты </RouterLink>
+          </NuxtLink >
+          <NuxtLink  to="/supportPage/Тарифы"> Тарифы </NuxtLink >
+          <NuxtLink  to="/supportPage/Контакты"> Контакты </NuxtLink >
         </nav>
         <div :class="$style.list">
           <a href='tel:74951184422'> +7 495 118-44-22</a>
-          <RouterLink to="/entry"> Вход </RouterLink>
-          <RouterLink to="/registration" class="btn">
+          <NuxtLink  to="/supportPage/Вход"> Вход </NuxtLink >
+          <NuxtLink  to="/supportPage/Регистрация" class="btn">
               Регистрация
-          </RouterLink>
+          </NuxtLink >
         </div>
       </div>
   </header>
 </template>
 <script setup>
-import {RouterLink} from "vue-router";
 </script>
 
 <style module lang="scss">
