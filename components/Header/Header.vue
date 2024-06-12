@@ -3,7 +3,7 @@
       <div :class="$style.inner" class="container">
         <nav :class="$style.list">
           <RouterLink to="/">
-            <img alt="logo" :class="$style.img" src="~/assets/img/logo.svg">
+            <img alt="logo" :class="$style.img" src="../../assets/img/header/logo.svg">
           </RouterLink>
           <RouterLink to="/tariffs"> Тарифы </RouterLink>
           <RouterLink to="/contacts"> Контакты </RouterLink>

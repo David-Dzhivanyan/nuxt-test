@@ -35,7 +35,7 @@
     </form>
 
     <div :class="$style.imgWrapper">
-      <img alt="laptop" :class="$style.img" src="~/assets/img/laptop.png"/>
+      <img alt="laptop" :class="$style.img" src="../../assets/img/check-fine/laptop.png"/>
     </div>
   </div>
 </template>

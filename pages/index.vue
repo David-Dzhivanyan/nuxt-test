@@ -30,6 +30,7 @@ import CardsGrid from "~/components/CardsGrid/CardsGrid.vue";
   .title {
     text-align: center;
     font-size: 34px;
+    margin-bottom: 33px;
   }
 
   @media (max-width: map-get($media-breakpoint, md)) {
