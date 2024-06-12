@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   src: { type: String, default: '' },
   title: { type: String, default: '' },
   description: { type: String, default: '' },
